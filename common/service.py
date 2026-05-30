@@ -58,12 +58,13 @@ def send_mail_multi_alternative():
 def thread_send_mail(to, subject, content):
     thread = threading.Thread(
         target=send_custom_mail,
-        args=(to, subject, content)
-    )
+        args=(to, subject, content))
     thread.start()
+
 def thread_send_mail_multi_alternative():
     thread = threading.Thread(target=send_mail_multi_alternative)
     thread.start()
 
 def thread_send_file_to_emil():
     pass
+

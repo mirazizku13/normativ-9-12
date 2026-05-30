@@ -8,8 +8,10 @@ urlpatterns = [
     path('login-page/', views.login_view, name='login'),
     path('logout-page/', views.logout_view, name='logout'),
     path('profile/', views.profile, name='profile'),
+
     path('forgot-password/', views.ForgotPassword.as_view(), name='password_reset'),
     path('forgot-password/done/', views.ResetPasswordDone.as_view(), name='password_reset_done'),
+
     path('google_login_page/', views.google_login_page, name='google_login_page'),
     path('google/login/callback/', views.google_login_callback, name='google_login_callback'),
     path('verify_totp/', views.verify_totp, name='verify_totp'),

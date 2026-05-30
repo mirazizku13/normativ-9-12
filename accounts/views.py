@@ -58,8 +58,8 @@ class ForgotPassword(View):
             email = form.cleaned_data.get('email')
             user = User.objects.filter(email=email).first()
             if user:
-                code =  VerificationCode.objects.create(user=user, email=email)
-                thread_send_mail(user, 'parolnitiklash ushun emailga xat', f'your code is {code.code}')
+                code =  VerificationCode.objects.create(user=user)
+                thread_send_mail(email, 'parolnitiklash ushun emailga xat', f'your code is {code.code}')
             return redirect('password_reset_done')
         return render(request, 'accounts/password_reset_form.html', {'form': form})
 

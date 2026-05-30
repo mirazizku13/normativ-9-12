@@ -2570,3 +2570,81 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'google_login' not found. 'go
 2026-05-25 18:49:06,876 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
 2026-05-30 13:00:01,045 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
 2026-05-30 13:00:06,712 - django.request - WARNING - Not Found: /media/images/ChatGPT_Image_3_\u0434\u0435\u043a._2025_\u0433._18_20_55.png
+2026-05-30 13:25:57,388 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-05-30 13:25:59,725 - django.request - WARNING - Not Found: /favicon.ico
+2026-05-30 13:26:02,099 - django.request - WARNING - Not Found: /games/game_list
+2026-05-30 13:26:53,994 - django.request - ERROR - Internal Server Error: /ru/accounts/forgot-password/done/
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2128, in get_prep_value
+    return int(value)
+           ^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '`'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\accounts\views.py", line 78, in post
+    user = VerificationCode.objects.filter(code=code).first().user
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\query.py", line 1495, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\query.py", line 1513, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\query.py", line 1523, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1648, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1680, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1590, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1417, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\lookups.py", line 38, in __init__
+    self.rhs = self.get_prep_lookup()
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\lookups.py", line 410, in get_prep_lookup
+    return super().get_prep_lookup()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\lookups.py", line 96, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2130, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'code' expected a number but got '`'.
+2026-05-30 13:47:13,462 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\common\service.py changed, reloading.
+2026-05-30 13:47:14,888 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-05-30 13:47:21,528 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\common\service.py changed, reloading.
+2026-05-30 13:47:23,893 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-05-30 13:48:12,411 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\common\service.py changed, reloading.
+2026-05-30 13:48:14,605 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-05-30 13:48:22,353 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\common\service.py changed, reloading.
+2026-05-30 13:48:24,263 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-05-30 13:49:45,119 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\common\service.py changed, reloading.
+2026-05-30 13:49:46,859 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-05-30 13:49:50,767 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\accounts\urls.py changed, reloading.
+2026-05-30 13:49:53,093 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-05-30 13:56:26,478 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\accounts\views.py changed, reloading.
+2026-05-30 13:56:27,520 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-05-30 13:56:33,763 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\accounts\views.py changed, reloading.
+2026-05-30 13:56:35,048 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
