@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Media List
+{% endblock %}
+
+{% block main %}
+    <h1> File List Page</h1>
+    <a href="{% url 'files_create' %}" class="btn btn-success">➕ Yangi Media qo'shish</a>
+
+    <div class="books">
+        {% for file in files %}
+            <div class="book-card">
+                <h2>{{ file.title }}</h2>
+                <p>{{ file.content }}</p>
+                <img src="{{ file.img.url }}" alt="no photo"> <br> <br>
+                {% if file.video %}
+                    <video width="400" controls>
+                        <source src="{{ file.video.url }}" type="video/mp4">
+                    </video>
+                {% endif %}<br> <br>
+                <a href="{{ file.file.url }}">file</a> <br> <br>
+                <a href="{% url 'files_update' file.id %}" class="btn btn-warning">✏️ Tahrirlash</a>
+                <a href="{% url 'files_delete' file.id %}" class="btn btn-danger">Delate</a>
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

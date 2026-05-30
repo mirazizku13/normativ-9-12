@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Product list
+{% endblock %}
+
+{% block main %}
+    <h1>Product list page</h1>
+    <a href="{% url 'product_create_from' %}">
+        <button>create</button>
+    </a>
+
+    <div class="books">
+        {% for product in products %}
+            <div class="book-card">
+                <h2>{{ product.title }}</h2>
+                <p>{{ product.description }}</p>
+                <p>{{ product.created_time }}</p>
+                <a href="{% url 'product_detail' product.id %}"><button>Detail</button></a>
+                <a href="{% url 'product_update_from' product.id %}"><button class="btn btn-warning">update</button></a>
+                <a href="{% url 'product_delete' product.id %}"><button class="btn btn-danger">delete</button>
+                </a>
+            </div>
+        {% empty %}
+            <p>Hali productlar yo'q</p>
+        {% endfor %}
+    </div>
+
+
+        <nav aria-label="page">
+      <ul class="pagination">
+    <!--      preveus-->
+        {% if games.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?search={{ search }}&page={{ games.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+        {% endif %}
+
+    <!--    {% for game in games %}-->
+    <!--        {% if games.number == game.number%}-->
+    <!--            <li class="page-item active"><a class="page-link" href="?search={{ search }}&page={{ game.number }}">{{ game.number }}</a></li>-->
+    <!--        {% else %}-->
+    <!--            <li class="page-item disabled"><a class="page-link" href="?search={{ search }}&page={{ game.number }}">{{ game.number }}</a></li>-->
+    <!--        {% endif %}-->
+    <!--    {% endfor %}-->
+
+
+        {% for game in games.paginator %}
+            {% if games.number == game %}
+                <li class="page-item active">
+                    <a class="page-link" href="?search={{ search }}&page={{ game.number }}">{{ game.number }}</a>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?search={{ search }}&page={{ game.number }}">{{ game.number }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+
+        {% if games.has_next %}
+            <li class="page-item"><a class="page-link" href="?search={{ search }}&page={{ games.next_page_number }}">Next</a></li>
+        {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+{% endblock %}

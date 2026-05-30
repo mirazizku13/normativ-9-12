@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    edit
+{% endblock %}
+
+{% block main %}.
+    <h1>product Edit</h1>
+<!--    <form method="post" action="{% url 'product_update' product.id %}">-->
+<!--        {% csrf_token %}-->
+<!--        <label for="title">Title:</label>-->
+<!--        <input type="text" name="title" placeholder="product sarlavxasi ..." required value={{ product.title }}> <br> <br>-->
+<!--        <label for="description">Description:</label>-->
+<!--        <input type="text" name="description" placeholder="product tavsifu ..." required value={{ product.description }}><br>-->
+<!--        <br>-->
+<!--        <label for="price">Price:</label>-->
+<!--        <input type="number" name="price" placeholder="product narxi ..." required value={{ product.price }}> <br><br>-->
+<!--        <button>edit</button>-->
+<!--        <a href="{% url 'product_list' %}">-->
+<!--            back</a>-->
+<!--    </form>-->
+
+<form method="post" action="{% url 'product_update' product.id %}">
+    {% csrf_token %}
+
+    <label>Title:</label>
+    <input type="text" name="title" required value="{{ product.title }}"> <br><br>
+
+    <label>Description:</label>
+    <input type="text" name="description" required value="{{ product.description }}"> <br><br>
+
+    <label>Price:</label>
+    <input type="number" name="price" required value="{{ product.price }}"> <br><br>
+
+    <button type="submit">edit</button>
+</form>
+
+{% endblock %}

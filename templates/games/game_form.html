@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}O'yinni Tahrirlash{% else %}Yangi O'yin Qo'shish{% endif %}
+{% endblock %}
+
+{% block main %}
+    <div class="game-form">
+        <h2 class="mb-4">
+            {% if form.instance.pk %}
+                ✏️ O'yinni Tahrirlash
+            {% else %}
+                🎮 Yangi O'yin Qo'shish
+            {% endif %}
+        </h2>
+        
+        <form method="post">
+            {% csrf_token %}
+            
+            {% for field in form %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <ul class="errorlist">
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            
+            <div class="mt-4">
+                <button type="submit" class="btn btn-success">💾 Saqlash</button>
+                <a href="{% url 'games:game_list' %}" class="btn btn-secondary">❌ Bekor qilish</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

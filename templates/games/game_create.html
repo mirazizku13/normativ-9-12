@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}
+    Yangi O'yin Qo'shish
+{% endblock %}
+
+{% block main %}
+    <div class="game-form">
+        <h2 class="mb-4" >
+            🎮 {% trans "Yangi O'yin Qo'shish" %}
+        </h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <ul class="errorlist">
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-success">💾 {% trans "Saqlash" %}</button>
+                <a href="{% url 'games:game_list' %}" class="btn btn-secondary">❌ {% trans "Bekor qilish" %}</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block main %}
+<style>
+    /* 1. Asosiy oyna - To'q ko'k fon */
+    .mail-window {
+        max-width: 800px;
+        margin: 40px auto;
+        background: #0b1a31; /* Rasmga mos to'q fon */
+        border-radius: 20px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        font-family: 'Monaco', 'Consolas', monospace; /* Dasturchilar uslubidagi shrift */
+        overflow: hidden;
+        border: 1px solid #1a2b45;
+        color: #94a3b8;
+    }
+
+    /* 2. Header qismi */
+    .window-header {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #1a2b45;
+    }
+
+    .dots {
+        display: flex;
+        gap: 10px;
+    }
+
+    .dot {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+    }
+
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .window-title {
+        flex: 1;
+        text-align: center;
+        font-size: 13px;
+        color: #64748b;
+        letter-spacing: 1px;
+    }
+
+    /* 3. Form elementlari - Chiziqli dizayn */
+    .form-group {
+        display: flex;
+        align-items: center;
+        padding: 15px 25px;
+        border-bottom: 1px solid #1a2b45;
+    }
+
+    .label {
+        width: 100px;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #475569;
+        letter-spacing: 2px;
+    }
+
+    input[type="email"],
+    input[type="text"] {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 5px;
+        font-size: 14px;
+        background: transparent;
+        color: #38bdf8; /* Neon havo rang matn */
+    }
+
+    input::placeholder {
+        color: #1649a1;
+    }
+
+    /* 4. Textarea */
+    textarea {
+        width: 100%;
+        min-height: 250px;
+        border: none;
+        outline: none;
+        padding: 25px;
+        font-size: 15px;
+        background: transparent;
+        color: #0954b5;
+        resize: none;
+        box-sizing: border-box;
+    }
+
+    /* 5. Footer va Tugma */
+    .window-footer {
+        padding: 20px 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Chap tomondagi rejim tugmalari (rasmdagi kabi) */
+    .mode-tags {
+        display: flex;
+        gap: 10px;
+    }
+
+    .tag {
+        padding: 5px 12px;
+        border: 1px solid #1e293b;
+        border-radius: 6px;
+        font-size: 11px;
+        color: #475569;
+    }
+
+    .tag.active {
+        border-color: #0ea5e9;
+        color: #0ea5e9;
+        box-shadow: 0 0 10px rgba(14, 165, 233, 0.2);
+    }
+
+    /* Yuborish tugmasi */
+    .btn-send {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        transition: 0.3s;
+    }
+
+    .btn-send:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+</style>
+<div class="mail-window">
+    <div class="window-header">
+        <div class="dots">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+        </div>
+
+        <div class="window-title">
+            <span>📩</span> {% trans "Yangi xabar" %}
+        </div>
+
+        <div style="flex: 1;"></div>
+    </div>
+
+    <form method="POST" action="{% url 'games:send_email' %}">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <span class="label">{% trans "Kimga" %}</span>
+            <input type="email" name="email" placeholder="receiver@gmail.com" required>
+        </div>
+
+        <div class="form-group">
+            <span class="label">{% trans "Mavzu" %}</span>
+            <input type="text" name="subject" placeholder="Email mavzusi..." required>
+        </div>
+
+        <textarea
+            name="message"
+            placeholder='{% trans "Email matnini yozing..." %}'
+            required
+        ></textarea>
+
+        <div class="window-footer">
+            <button type="submit" class="btn-send">
+                🚀 {% trans "Yuborish" %}
+            </button>
+
+        {% load static %}
+
+            <a href="#"><img src="{% static 'icons_for_templates/ico_file.png' %}" alt="Ikonka" width="50"></a>
+
+        </div>
+    </form>
+</div>
+
+{% endblock %}

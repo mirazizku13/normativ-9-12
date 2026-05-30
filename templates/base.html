@@ -1,0 +1,82 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Game Shop{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'games:game_list' %}">🎮{% trans "Game Shop" %}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href='/'>Home page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'games:game_list' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'games:send_email' %}">Send Masage</a>
+                </li>
+            </ul>
+            {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}" tabindex="-1">{% trans "Logout" %}</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}" tabindex="-1">{% trans "Profile" %}</a>
+                    </li>
+
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}" tabindex="-1">{% trans "Login" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}" tabindex="-1">{% trans "Register" %}</a>
+                    </li>
+                {% endif %}
+                <form class="d-flex" action="{% url 'set_language' %}"
+                      method="post">
+                  {% csrf_token %}
+                  <select class="form-control me-1" name="language">
+                    <option value="en">English</option>
+                    <option value="uz">O'zbekcha</option>
+                    <option value="ru">Русский</option>
+                  </select>
+                  <button type="submit" class="btn btn-outline-primary">{% trans "O'zgartir" %}</button>
+                </form>
+            <form class="d-flex" method="get" action="{% url 'games:game_list' %}">
+                <input class="form-control me-2" type="search" placeholder="Search games..." name="search" value="{{ search }}">
+                <button class="btn btn-outline-success" type="submit">{% trans "Search" %}</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    {% block main %}
+    {% endblock %}
+</div>
+
+
+
+
+<footer class="footer">
+    <p> 2024 Game Shop. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

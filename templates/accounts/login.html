@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+{% block title %}
+    login
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1>Login</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>login</button>
+        </form>
+        {# Django template tag #}
+{#        <a href="{% provider_login_url 'google' %}"#}
+{#           class="google-btn">#}
+{#          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEwG38p5SqncjtqfQ_3kg7QnvFt8Fo1EYUVQ&s" alt="Google">#}
+{#          Google bilan kirish#}
+{#        </a>#}
+    </div>
+{% endblock %}

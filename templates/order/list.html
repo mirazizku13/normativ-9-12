@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Media List
+{% endblock %}
+
+{% block main %}
+    <h1> File List Page</h1>
+    #<a href="{% url 'add_order' %}" class="btn btn-success">➕ Yangi Media qo'shish</a>
+
+    <div class="books">
+        {% for file in orders %}
+            <div class="book-card">
+                <h2>{{ file.title }}</h2>
+                <p>{{ file.customer_name }}</p>
+                <p>{{ file.phone }}</p>
+                <p>{{ file.address }}</p>
+                <p>{{ file.total_price }}</p>
+                <p>{{ file.status }}</p>
+                <p>{{ file.is_paid }}</p>
+
+                <a href="{% url 'edit_order' file.id %}" class="btn btn-warning">✏️ Tahrirlash</a>
+                <a href="{% url 'delete_order' file.id %}" class="btn btn-danger">Delate</a>
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
