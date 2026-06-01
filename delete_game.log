@@ -2648,3 +2648,88 @@ ValueError: Field 'code' expected a number but got '`'.
 2026-05-30 13:56:27,520 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
 2026-05-30 13:56:33,763 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\accounts\views.py changed, reloading.
 2026-05-30 13:56:35,048 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-06-01 14:24:21,427 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-06-01 14:24:24,041 - django.request - WARNING - Not Found: /favicon.ico
+2026-06-01 14:49:33,109 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\config\settings.py changed, reloading.
+2026-06-01 14:49:35,661 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-06-01 14:49:43,580 - django.request - ERROR - Internal Server Error: /ru/accounts/login-page/
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\accounts\views.py", line 32, in login_view
+    return render(request, 'accounts/login.html', {'form': form})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 164, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 1018, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 1018, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 979, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 164, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 1018, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 1018, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 979, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 1018, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 1018, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\base.py", line 979, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\template\library.py", line 324, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\allauth\socialaccount\templatetags\socialaccount.py", line 44, in provider_login_url
+    return provider.get_login_url(request, **query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\allauth\socialaccount\providers\oauth2\provider.py", line 24, in get_login_url
+    url = reverse(f"{self.id}_login")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'google_login' not found. 'google_login' is not a valid view function or pattern name.
+2026-06-01 14:50:43,188 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\accounts\urls.py changed, reloading.
+2026-06-01 14:50:44,205 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-06-01 14:56:23,530 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\config\settings.py changed, reloading.
+2026-06-01 14:56:24,460 - django.utils.autoreload - INFO - Watching for file changes with StatReloader

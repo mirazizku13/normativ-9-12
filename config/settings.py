@@ -186,12 +186,12 @@ EMAIL_HOST_PASSWORD = "bzsrbzrzubrgkxge"
 # GOOGLE_TRANSLATE_KEY = 'your-api-key'
 
 
-SITE_ID = 2  # ← muhim!
+SITE_ID = 4  # ← muhim!
 
-# AUTHENTICATION_BACKENDS = (
-#     'django.contrib.auth.backends.ModelBackend',
-#     'allauth.account.auth_backends.AuthenticationBackend',
-# )
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 GOOGLE_CLIENT_ID = env("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = "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"
 
