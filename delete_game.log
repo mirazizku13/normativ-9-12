@@ -2733,3 +2733,28 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'google_login' not found. 'go
 2026-06-01 14:50:44,205 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
 2026-06-01 14:56:23,530 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\config\settings.py changed, reloading.
 2026-06-01 14:56:24,460 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-06-03 16:32:41,268 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-06-16 14:23:11,176 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-06-16 14:23:19,845 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-06-16 14:23:40,402 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-06-16 14:23:42,550 - django.request - WARNING - Not Found: /favicon.ico
+2026-06-16 14:24:28,168 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2026-06-16 14:24:45,081 - django.request - WARNING - Forbidden (Permission denied): /ru/games/create/
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\contrib\auth\mixins.py", line 108, in dispatch
+    return self.handle_no_permission()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\DjangoProject\forgetpass\.venv\Lib\site-packages\django\contrib\auth\mixins.py", line 48, in handle_no_permission
+    raise PermissionDenied(self.get_permission_denied_message())
+django.core.exceptions.PermissionDenied
+2026-06-16 14:49:23,136 - django.utils.autoreload - INFO - C:\Users\user\Desktop\DjangoProject\forgetpass\accounts\views.py changed, reloading.
+2026-06-16 14:49:24,775 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
