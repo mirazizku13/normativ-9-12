@@ -15,7 +15,7 @@ services:
       retries: 5
 
   web:
-    build: mirazizk/forgetpass-web:latest
+    image: mirazizk/forgetpass-web:latest
     restart: always
     env_file:
       - .env
