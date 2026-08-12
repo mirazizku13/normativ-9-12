@@ -33,3 +33,16 @@ jobs:
           GOOGLE_CLIENT_ID: "test-client-id"
           GOOGLE_CLIENT_SECRET: "test-client-secret"
         run: python manage.py test
+
+  build-and-push:
+    name: Build & Push (CD)
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.event_name == 'push'
+
+    steps:
+      - name: Kodni checkout qilish
+        uses: actions/checkout@v4
+
+      - name: Docker Hubga
+        uses:

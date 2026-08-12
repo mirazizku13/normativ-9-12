@@ -7,3 +7,5 @@ __pycache__/
 *.sqlite3
 venv/
 staticfiles/
+deploy_key
+deploy_key.pub

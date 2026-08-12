@@ -192,12 +192,12 @@ EMAIL_HOST_PASSWORD = "bzsrbzrzubrgkxge"
 # GOOGLE_TRANSLATE_KEY = 'your-api-key'
 
 
-SITE_ID = 4  # ← muhim!
-
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
+# SITE_ID = 4  # ← muhim!
+#
+# AUTHENTICATION_BACKENDS = (
+#     'django.contrib.auth.backends.ModelBackend',
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# )
 GOOGLE_CLIENT_ID = env("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = "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"
 
@@ -207,11 +207,40 @@ GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/auth"
 GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token"
 GOOGLE_USER_INFO_URL = "https://www.googleapis.com/oauth2/v1/userinfo"
 
+
+
+
+
+SITE_ID = 4  # Sayt ID bazadagiga mos kelishi kerak
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+# Allauth uchun asosiy to'g'ri sozlama (JSON yoki .env dagi ma'lumotlarni shu yerga beramiz)
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': env("GOOGLE_CLIENT_ID"),
+            'secret': env("GOOGLE_CLIENT_SECRET"), # yoki to'g'ridan-to'g'ri matn ko'rinishida
+            'key': ''
+        },
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 # Ixtiyoriy — email orqali login
-ACCOUNT_LOGIN_METHODS      = {'email'}
-ACCOUNT_EMAIL_REQUIRED     = True
+ACCOUNT_LOGIN_METHODS = {'email'}
+ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 
 SOCIALACCOUNT_LOGIN_ON_GET = True
